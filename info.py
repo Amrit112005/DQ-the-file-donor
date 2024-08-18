@@ -21,13 +21,13 @@ BOT_TOKEN = environ['BOT_TOKEN']
 CACHE_TIME = int(environ.get('CACHE_TIME', 300))
 USE_CAPTION_FILTER = is_enabled((environ.get('USE_CAPTION_FILTER', 'True')), True)
 
-PICS = (environ.get('PICS', '')).split()
+PICS = (environ.get('PICS', 'https://te.legra.ph/file/28072d2769ff47a75e909.jpg https://te.legra.ph/file/150c38cad334f6a36d924.jpg https://te.legra.ph/file/bbe6545cc5459dc3d3369.jpg https://te.legra.ph/file/9765066148a76efa14156.jpg https://te.legra.ph/file/bd9b10dd1759d45c6293e.jpg https://te.legra.ph/file/cc4dfeee5ea5dea688808.jpg https://te.legra.ph/file/1e28e21eea1b5861daade.jpg')).split()
 NOR_IMG = environ.get("NOR_IMG", "https://telegra.ph/file/46443096bc6895c74a716.jpg")
 MELCOW_VID = environ.get("MELCOW_VID", "https://telegra.ph/file/451f038b4e7c2ddd10dc0.mp4")
 SPELL_IMG = environ.get("SPELL_IMG", "https://telegra.ph/file/5e2d4418525832bc9a1b9.jpg")
 
 # Admins, Channels & Users
-ADMINS = [int(admin)https://te.legra.ph/file/28072d2769ff47a75e909.jpg https://te.legra.ph/file/150c38cad334f6a36d924.jpg https://te.legra.ph/file/bbe6545cc5459dc3d3369.jpg https://te.legra.ph/file/9765066148a76efa14156.jpg https://te.legra.ph/file/bd9b10dd1759d45c6293e.jpg https://te.legra.ph/file/cc4dfeee5ea5dea688808.jpg https://te.legra.ph/file/1e28e21eea1b5861daade.jpg if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '').split()]
+ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '').split()]
 CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '0').split()]
 auth_users = [int(user) if id_pattern.search(user) else user for user in environ.get('AUTH_USERS', '').split()]
 AUTH_USERS = (auth_users + ADMINS) if auth_users else []
