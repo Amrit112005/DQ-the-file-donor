@@ -46,7 +46,15 @@ SECONDDB_URI = environ.get('SECONDDB_URI', None)
 DATABASE_URI = environ.get('DATABASE_URI', "")
 DATABASE_NAME = environ.get('DATABASE_NAME', "Cluster0")
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'FILES')
-
+# upstream
+UPSTREAM_REPO = getenv(
+    "UPSTREAM_REPO",
+    "https://github.com/Amrit112005/DQ-the-file-donor",
+)
+UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "Master")
+GIT_TOKEN = getenv(
+    "GIT_TOKEN", None
+)
 # Others
 IS_VERIFY = is_enabled((environ.get('IS_VERIFY', 'False')), False)
 HOW_TO_VERIFY = environ.get('HOW_TO_VERIFY', "https://t.me/+tO_VMvYw6lNlOWE1")
